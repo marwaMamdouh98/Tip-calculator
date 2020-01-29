@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Tip calcultor</title>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Solway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    </head>
+<body>
+<!-- start Tip calcultor-->
+    <div class="container">
+        <div class="Tip_calcultor">
+                <h1>Tip calcultor </h1>
+            <!--1-->
+            <div class="tip_label">
+                <label>How much was your bill ?</label>
+            </div>
+        <!--set data in input-->
+            <div class="data_input1">
+                <input id="tipBill" type="number" class="inputData"> $
+            </div>
+            
+            <!--2-->
+            <div class="tip_label">
+                <label>How was your services ? </label>
+            </div>
+        <!--set data in input-->
+            <div class="data_input2">
+                <select id="servPeople">
+                    <option value="0.05">Terrible - 5%</option>
+                    <option value="0.1">Bad - 10%</option>
+                    <option value="0.15">OK - 15%</option>
+                    <option value="0.2">Good - 20%</option>
+                    <option value="0.3">Outstanding - 30%</option>
+                </select>
+            </div>
+            <!--3-->
+            <div class="tip_label">
+                <label>How many people are sharing your bill ?</label>
+            </div>
+        <!--set data in input-->
+            <div class="data_input3">
+                <input id="tipPeople" type="number" class="inputData"> people
+            </div>
+            
+        <!--Add button-->
+            <div class="tipclac_btn">
+                <button id="tipBtn">CALCULATE</button>
+            </div>
+        <!-- this is the container to set data in it-->
+            <div id="result">
+            
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    <script src="js/index.js"></script>
+    </body>
+</html>
