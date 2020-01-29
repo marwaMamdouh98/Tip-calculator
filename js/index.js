@@ -3,7 +3,7 @@ let bill = document.getElementById("tipBill");
 let servicePeople = document.getElementById("servPeople");
 let numPeople = document.getElementById("tipPeople");
 let tipBtn = document.getElementById("tipBtn");
- 
+ let tipReset = document.getElementById("tipBtn2");
      
 // create class of tip calculator 
 
@@ -13,11 +13,20 @@ class TipBill {
         this.numPeople = numPeople;
         this.servicePeople=servicePeople;
     }
-   
-    //  method for check input 
+    // method for calculate data
+        clacTip(){
+            var calcTip = (this.bill / this.numPeople) * this.servicePeople;
+            calcTip = Math.round(calcTip * 100) / 100;
+            return calcTip;
+        }
+    //method for check input 
         checkData(){
-        if(bill == "" || servicePeople == 0 ){
-            alert (" please inter your data please ....");
+        if(bill.value == "" || numPeople.value == "" ){
+            alert (" please enter your data please ....");
+        }
+         else if(bill.value <= 0 || numPeople.value <= 0 ){
+            alert (" please enter  positive data please ....");
+             this.clearData();
         }
         else {
             this.clacTip();
@@ -25,7 +34,7 @@ class TipBill {
             }
             
         }
-        // method for calculate data
+    // method for calculate data
         clacTip(){
             var calcTip = (this.bill / this.numPeople) * this.servicePeople;
             calcTip = Math.round(calcTip * 100) / 100;
@@ -37,13 +46,15 @@ class TipBill {
         servicePeople.value="";
         numPeople.value="";
         
-    }
-    // method for show output
-   /* displayData(){
-       
-        document.getElementById("tipPeople").innerHTML="set the vale "+calculatorTip.checkData(); 
-     }*/
+        }
+     
 }
+// for reset data 
+  /* tipBtn2.addEventListener("click", function() {
+        
+        calculatorTip.clearData();
+    });*/
+
     //for display output
         tipBtn.addEventListener("click", function(e) {
         e.preventDefault();
@@ -52,10 +63,10 @@ class TipBill {
             var showData =document.getElementById("result");
             var temp ="";
             temp+=`<h3>the amount is `+calculatorTip.clacTip()+` $</h3>`
-           // showData.innerHTML="the amount is "+calculatorTip.clacTip()+"$";
            showData.innerHTML=temp;
               
         });
+
         
         
    
