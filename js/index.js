@@ -47,7 +47,6 @@ class TipBill {
     //  method for clear input 
     clearData(){
         bill.value = "" ;
-        servicePeople.value="";
         numPeople.value="";
         
         }
@@ -71,6 +70,7 @@ class TipBill {
             e.preventDefault();
            // reset data ....
             form.reset();
+           document.getElementById("result").style.display="none";
         });
   
         
