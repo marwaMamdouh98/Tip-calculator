@@ -3,7 +3,8 @@ let bill = document.getElementById("tipBill");
 let servicePeople = document.getElementById("servPeople");
 let numPeople = document.getElementById("tipPeople");
 let tipBtn = document.getElementById("tipBtn");
- let tipReset = document.getElementById("tipBtn2");
+let tipReset = document.getElementById("tipBtn2");
+let form = document.getElementById("tipForm");
      
 // create class of tip calculator 
 
@@ -23,14 +24,17 @@ class TipBill {
         checkData(){
         if(bill.value == "" || numPeople.value == "" ){
             alert (" please enter your data please ....");
+            document.getElementById("result").style.display="none";
         }
          else if(bill.value <= 0 || numPeople.value <= 0 ){
             alert (" please enter  positive data please ....");
              this.clearData();
+             document.getElementById("result").style.display="none";
         }
         else {
             this.clacTip();
-            this.clearData();  
+            document.getElementById("result").style.display="block";
+            //this.clearData();  
             }
             
         }
@@ -49,14 +53,9 @@ class TipBill {
         }
      
 }
-// for reset data 
-  /* tipBtn2.addEventListener("click", function() {
-        
-        calculatorTip.clearData();
-    });*/
 
     //for display output
-        tipBtn.addEventListener("click", function(e) {
+        form.addEventListener("submit", function(e) {
         e.preventDefault();
            let calculatorTip = new  TipBill (bill.value , numPeople.value , servicePeople.value);
             calculatorTip.checkData();
@@ -67,6 +66,12 @@ class TipBill {
               
         });
 
-        
+    //call for reset data 
+       tipBtn2.addEventListener("click", function(e) {
+            e.preventDefault();
+           // reset data ....
+            form.reset();
+        });
+  
         
    
